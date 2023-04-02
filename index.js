@@ -11,6 +11,27 @@ const tutorials = [
   'what is JSONP?'
 ];
 
-const titleCased = () => {
-  return tutorials
+
+const titleCased = (tutorialTitle) => {
+  const arr = tutorialTitle.split(" ");
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  // NOTE! - This code used from an example on https://flexiple.com/javascript/javascript-capitalize-first-letter/.
+  //
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  //loop through each element of the array and capitalize the first letter.
+  for (var i = 0; i < arr.length; i++) {
+    arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+  }
+
+  //Join all the elements of the array back into a string 
+  //using a blankspace as a separator 
+  const titleCasedTutorialTitle = arr.join(" ");
+  console.log(titleCasedTutorialTitle);
+  return titleCasedTutorialTitle;
 }
+
+const titleCaseTutorials = tutorials.map(titleCased);
+console.log(titleCaseTutorials)
